@@ -12,7 +12,6 @@ License URI:  https://www.gnu.org/licenses/gpl-2.0.txt
 */
 
 
-
 // exit if file is called directly
 if ( ! defined( 'ABSPATH' ) ) {
 
@@ -25,10 +24,20 @@ define ( 'WPNAT_URL', trailingslashit( plugins_url( '/', __FILE__ ) ) );
 define ( 'WPNAT_TETXDOMAIN', 'wp-nathan' );
 define ( 'WPNAT_PLUGIN_NAME', 'WP Nathan' );
 
-
 if ( ! class_exists( 'wpnat_core_functions' ) ) {
 
 	class wpnat_core_functions {
+
+		public static $instance = null;
+
+		public static function get_instance() {
+			if( self::$instance !== null ) {
+				return self::$instance;
+			}
+			self::$instance = new self();
+			return self::$instance;
+		}
+
 		public function __construct() {
 			add_action( 'admin_menu', [ $this, 'wpnat_add_toplevel_menu' ] );
 			add_action( 'admin_enqueue_scripts', [ $this, 'wpnat_ajax_admin_enqueue_scripts' ] );
@@ -38,22 +47,31 @@ if ( ! class_exists( 'wpnat_core_functions' ) ) {
 		function wpnat_ajax_admin_enqueue_scripts( $hook ) {
 			// check if our page
 			if ( 'toplevel_page_wpnat-settings' !== $hook ) return;
-	
+
 			// define script url
-			$script_url = plugins_url( 'admin/js/ajax-admin.js', __FILE__ );
-		
+			$style_url = WPNAT_URL . 'admin/css/admin.css';
+
+			// define style url
+			$script_url = WPNAT_URL . 'admin/js/ajax-admin.js';
+
+			// enqueue styles
+			wp_enqueue_style( 'ajax-admin-styles', $style_url );
+
 			// enqueue script
-			wp_enqueue_script( 'ajax-admin', $script_url, '', true );	
-		
+			wp_enqueue_script( 'ajax-admin', $script_url, array(), true );
+
 			// create nonce
-			$nonce = wp_create_nonce( 'ajax_admin' );
-		
+			$nonce = wp_create_nonce( 'wp-nathan' );
+
 			// define script
-			$script = array( 'nonce' => $nonce );
-		
+			$script = array(
+				'nonce' => $nonce,
+				'enableComments' => get_option('enable_comments'),
+			);
+
 			// localize script
 			wp_localize_script( 'ajax-admin', 'ajax_admin', $script );
-		
+
 		}
 
 		// process ajax request
@@ -67,36 +85,39 @@ if ( ! class_exists( 'wpnat_core_functions' ) ) {
 
 			// define the url
 			$selected_theme = isset( $_POST['selected_theme'] ) ? sanitize_text_field( $_POST['selected_theme'] ) : false;
+			$enable_comments = isset( $_POST['enable_comments'] ) ? sanitize_text_field( $_POST['enable_comments'] ) : false;
 
 			update_option( 'selected_theme', $selected_theme );
 
+			update_option( 'enable_comments', $enable_comments );
+
 			return true;
-			
+
 			// end processing
 			wp_die();
 
 		}
-		
-	
+
+
 
 		// add top-level administrative menu
 		public function wpnat_add_toplevel_menu() {
-			
-			/* 
+
+			/*
 				add_menu_page(
-					string   $page_title, 
-					string   $menu_title, 
-					string   $capability, 
-					string   $menu_slug, 
-					callable $function = '', 
-					string   $icon_url = '', 
-					int      $position = null 
+					string   $page_title,
+					string   $menu_title,
+					string   $capability,
+					string   $menu_slug,
+					callable $function = '',
+					string   $icon_url = '',
+					int      $position = null
 				)
 			*/
-			
+
 			$capability = 'manage_options';
 			$slug = 'wpnat-settings';
-	
+
 			add_menu_page(
 				__( WPNAT_PLUGIN_NAME, WPNAT_TETXDOMAIN ),
 				__( WPNAT_PLUGIN_NAME, WPNAT_TETXDOMAIN ),
@@ -105,7 +126,7 @@ if ( ! class_exists( 'wpnat_core_functions' ) ) {
 				[ $this, 'wpnat_display_settings_page' ],
 				"",
 			);
-			
+
 		}
 
 		public function wpnat_display_settings_page() {
@@ -113,18 +134,36 @@ if ( ! class_exists( 'wpnat_core_functions' ) ) {
 			?>
 			<div class="wrap">
 				<h1><?php echo WPNAT_PLUGIN_NAME ?></h1>
+
 				<form class="ajax-form" method="post">
 					<table class="form-table" role="presentation">
+					<?php
+						$selected_theme = get_option( 'selected_theme' );
+						$enable_comments = get_option( 'enable_comments' );
+						$isChecked = false;
+						if( $enable_comments === 'true') {
+							$isChecked = true;
+						} else {
+							$isChecked = false;
+						}
+					?>
 						<tbody>
 							<tr>
+								<th scope="row">Enable comment styles</th>
+								<td>
+									<input name="enable_comment_styles" type="checkbox" id="enable_comment_styles" value="1" <?php checked( $isChecked, 1 ); ?>>
+								</td>
+							</tr>
+
+							<tr class="toggle-comment-settings <?php if($enable_comments === 'false') { ?> hide-target <?php } ?>" >
 								<th scope="row">
 									<label for="default_comments_theme">Comment theme</label>
 								</th>
 								<td>
 								<select name="default_comments_theme" id="default_comments_theme">
-									<option value="regular" <?php selected( get_option( 'selected_theme' ), 'regular' ); ?>>Regular theme</option>
-									<option value="modern" <?php selected( get_option( 'selected_theme' ), 'modern' ); ?>>Modern theme</option>
-									<option value="classic" <?php selected( get_option( 'selected_theme' ), 'classic' ); ?>>Classic theme</option>
+									<option value="regular" <?php selected( $selected_theme, 'regular' ); ?>>Regular theme</option>
+									<option value="modern" <?php selected( $selected_theme, 'modern' ); ?>>Modern theme</option>
+									<option value="classic" <?php selected( $selected_theme, 'classic' ); ?>>Classic theme</option>
 								</select>
 								</td>
 							</tr>
@@ -141,6 +180,5 @@ if ( ! class_exists( 'wpnat_core_functions' ) ) {
 
 	}
 
-	new wpnat_core_functions();
-
+	wpnat_core_functions::get_instance();
 }
