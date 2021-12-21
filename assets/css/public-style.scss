@@ -1,0 +1,280 @@
+/* Colors */
+$primary-color: #cbd5e0;
+$text-color: #3d4852;
+$text-color-alt: #718096;
+$text-color-alt-2: #495568;
+$text-color-alt-3: #7f8ea4;
+$text-color-alt-4: #bac7d6;
+$placeholder-color: #cbd5e0;
+$border-color: #e6ebf2;
+$link-color: #671fe8;
+$white: #fff;
+$box-shadow: rgba(0, 0, 0, 0.1);
+
+/* Fronts */
+$primary-font: 'Roboto', sans-serif;
+
+#comments.wpnat-comments-area {
+	font-size: 10px;
+	font-family: $primary-font; 
+
+	/* Type modern comments styles */
+	form, fieldset, table, tr, td, input, button, select, textarea, optgroup, option, a{
+		font-family: $primary-font; 
+		text-decoration: none;
+
+		&:focus {
+			outline: none;
+			text-decoration: none;
+		}
+	}
+
+	&.modern {
+
+		.comment-respond{ 
+			margin-top: 0;
+			margin-bottom: 0;
+
+			form {
+
+				.comment-notes {
+					margin-bottom: 10px;
+					font-size: 1.5em; 
+				}
+
+				.wpnat-row {
+					display: flex;
+					flex-wrap: wrap;
+					
+					.wpnat-common-input {
+						float: none;
+						
+
+						@media ( max-width: 767px ){
+							width: 100%;
+						}
+					}
+
+				}
+
+				.wpnat-common-input {
+					margin-bottom: 0;
+
+					input, textarea {
+						display: block;
+						padding: 8px 12px;
+						width: 100%;
+						border: .1em solid $primary-color;
+						border-radius: 5px;
+						margin-bottom: 0;
+						outline: none;
+						font-size: 1.4em;
+						line-height: normal;
+						font-weight: 400;
+						color: $text-color;
+						appearance: none;
+						resize: none;
+	
+						&::placeholder{
+							color:  $primary-color;
+						}
+					}
+
+					textarea {
+						height: 50px;
+						min-height: 50px;
+					}
+				}
+
+				.comment-form-cookies-consent {
+					margin-bottom: 10px;
+
+					label {
+						font-size: 1.4em; 
+					}
+				}
+	
+				.form-submit {
+					margin-top: 10px;
+					margin-bottom: 0;
+
+					.submit {
+						padding: 6px 15px;
+						border: 1px solid #d9e1eb;
+						border-radius: 5px;
+						background-color: $white;
+						color: $text-color;
+						font-size: 1.3em;
+						font-weight: 500;
+						text-align: center;
+						text-decoration: none;
+						transition-duration: .15s;
+	
+						&:hover {
+							box-shadow:
+							0 1px 2px 0 $box-shadow;
+						}
+	
+					}
+				}
+			}
+		}
+
+		.wpnat-comment-list {
+			margin-top: 40px; 
+			padding-left: 0;
+			list-style: none;
+
+			.comment {
+				position: relative;
+				margin-left: 0;
+				padding-left: 65px;
+
+				&.hide {
+
+					.wpnat-comment-body {
+						padding-bottom: 0;
+					}
+
+					.wpnat-angle-arrow {
+						transform: rotate(180deg);
+					}
+
+					&::before {
+						display: none;
+					}
+
+					.children {
+						display: none; 
+					}
+				}
+
+				&.parent.depth-1 { 
+					margin-bottom: 40px;
+
+					ol.children {
+						padding-left: 0;
+						list-style: none;
+					}
+
+					&::before{
+						content: '';
+						position: absolute;
+						top: 70px;
+						left: 22.5px;
+						bottom: -14px;
+						border-left: 1px solid $border-color;
+					}
+
+					.comment-respond {
+						padding-bottom: 30px;
+						margin-top: -20px; 
+
+						small {
+							position: absolute;
+							right: 0;
+							width: auto;
+							top: -71px;
+							left: auto;
+
+							a#cancel-comment-reply-link {
+								font-size: 14px;
+								font-weight: 500;
+								color: $text-color-alt-3;
+							}
+						}
+					}
+				
+				}
+				
+				.wpnat-comment-body {
+					padding-bottom: 40px;
+
+					.wpnat-comment-arrow-trigger {
+						cursor: pointer;
+						
+						.wpnat-comments-count { 
+							position: absolute;
+							top: 40px;
+							left: 20px;
+							color: $text-color-alt-4;
+						}
+	
+						.wpnat-angle-arrow {
+							position: absolute;
+							top: 55px;
+							left: 18px; 
+						}
+					}
+
+				
+	
+					.wpnat-comment-author {
+						display: flex;
+						flex-wrap: wrap;
+
+						.avatar {
+							position: absolute;
+							left: 0; 
+							margin-top: -10px;
+							border-radius: 100%;
+						}
+
+						.fn {
+							margin-top: -2px;
+							padding-left: 0;
+							line-height: normal;
+
+							a {
+								margin-right: 11px;
+								font-size: 1.5em;
+								font-weight: 500;
+								color: $text-color;
+							}
+						}
+
+						.wpnat-comment-metadata {
+							line-height: normal;
+
+							a {
+								font-size: 1.2em;
+								color: $text-color-alt;
+							}
+
+							.edit-link {
+								padding-left: 10px; 
+							}
+						}
+					}
+
+					.wpnat-comment-content {
+						p{
+							margin-top: 0;
+							font-size: 1.5em;
+							color: $text-color-alt-2;
+							line-height: 22px;
+
+							a{
+								color: $link-color;
+							}
+						}
+					}
+
+					.reply { 
+						line-height: normal;
+						margin-top: -3px;
+
+						.comment-reply-link {
+							font-size: 1.4em;
+							font-weight: 500;
+							color: $text-color-alt-3;
+							background-color: transparent;
+						}
+					}
+					
+				}
+
+			}
+		}
+	}
+}

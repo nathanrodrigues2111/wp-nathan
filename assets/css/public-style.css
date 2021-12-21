@@ -1,0 +1,272 @@
+/* Colors */
+/* Fronts */
+#comments.wpnat-comments-area {
+  font-size: 10px;
+  font-family: "Roboto", sans-serif;
+  /* Type modern comments styles */
+}
+
+#comments.wpnat-comments-area form, #comments.wpnat-comments-area fieldset, #comments.wpnat-comments-area table, #comments.wpnat-comments-area tr, #comments.wpnat-comments-area td, #comments.wpnat-comments-area input, #comments.wpnat-comments-area button, #comments.wpnat-comments-area select, #comments.wpnat-comments-area textarea, #comments.wpnat-comments-area optgroup, #comments.wpnat-comments-area option, #comments.wpnat-comments-area a {
+  font-family: "Roboto", sans-serif;
+  text-decoration: none;
+}
+
+#comments.wpnat-comments-area form:focus, #comments.wpnat-comments-area fieldset:focus, #comments.wpnat-comments-area table:focus, #comments.wpnat-comments-area tr:focus, #comments.wpnat-comments-area td:focus, #comments.wpnat-comments-area input:focus, #comments.wpnat-comments-area button:focus, #comments.wpnat-comments-area select:focus, #comments.wpnat-comments-area textarea:focus, #comments.wpnat-comments-area optgroup:focus, #comments.wpnat-comments-area option:focus, #comments.wpnat-comments-area a:focus {
+  outline: none;
+  text-decoration: none;
+}
+
+#comments.wpnat-comments-area.modern .comment-respond {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+#comments.wpnat-comments-area.modern .comment-respond form .comment-notes {
+  margin-bottom: 10px;
+  font-size: 1.5em;
+}
+
+#comments.wpnat-comments-area.modern .comment-respond form .wpnat-row {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+#comments.wpnat-comments-area.modern .comment-respond form .wpnat-row .wpnat-common-input {
+  float: none;
+}
+
+@media (max-width: 767px) {
+  #comments.wpnat-comments-area.modern .comment-respond form .wpnat-row .wpnat-common-input {
+    width: 100%;
+  }
+}
+
+#comments.wpnat-comments-area.modern .comment-respond form .wpnat-common-input {
+  margin-bottom: 0;
+}
+
+#comments.wpnat-comments-area.modern .comment-respond form .wpnat-common-input input, #comments.wpnat-comments-area.modern .comment-respond form .wpnat-common-input textarea {
+  display: block;
+  padding: 8px 12px;
+  width: 100%;
+  border: 0.1em solid #cbd5e0;
+  border-radius: 5px;
+  margin-bottom: 0;
+  outline: none;
+  font-size: 1.4em;
+  line-height: normal;
+  font-weight: 400;
+  color: #3d4852;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  resize: none;
+}
+
+#comments.wpnat-comments-area.modern .comment-respond form .wpnat-common-input input::-webkit-input-placeholder, #comments.wpnat-comments-area.modern .comment-respond form .wpnat-common-input textarea::-webkit-input-placeholder {
+  color: #cbd5e0;
+}
+
+#comments.wpnat-comments-area.modern .comment-respond form .wpnat-common-input input:-ms-input-placeholder, #comments.wpnat-comments-area.modern .comment-respond form .wpnat-common-input textarea:-ms-input-placeholder {
+  color: #cbd5e0;
+}
+
+#comments.wpnat-comments-area.modern .comment-respond form .wpnat-common-input input::-ms-input-placeholder, #comments.wpnat-comments-area.modern .comment-respond form .wpnat-common-input textarea::-ms-input-placeholder {
+  color: #cbd5e0;
+}
+
+#comments.wpnat-comments-area.modern .comment-respond form .wpnat-common-input input::placeholder, #comments.wpnat-comments-area.modern .comment-respond form .wpnat-common-input textarea::placeholder {
+  color: #cbd5e0;
+}
+
+#comments.wpnat-comments-area.modern .comment-respond form .wpnat-common-input textarea {
+  height: 50px;
+  min-height: 50px;
+}
+
+#comments.wpnat-comments-area.modern .comment-respond form .comment-form-cookies-consent {
+  margin-bottom: 10px;
+}
+
+#comments.wpnat-comments-area.modern .comment-respond form .comment-form-cookies-consent label {
+  font-size: 1.4em;
+}
+
+#comments.wpnat-comments-area.modern .comment-respond form .form-submit {
+  margin-top: 10px;
+  margin-bottom: 0;
+}
+
+#comments.wpnat-comments-area.modern .comment-respond form .form-submit .submit {
+  padding: 6px 15px;
+  border: 1px solid #d9e1eb;
+  border-radius: 5px;
+  background-color: #fff;
+  color: #3d4852;
+  font-size: 1.3em;
+  font-weight: 500;
+  text-align: center;
+  text-decoration: none;
+  -webkit-transition-duration: .15s;
+          transition-duration: .15s;
+}
+
+#comments.wpnat-comments-area.modern .comment-respond form .form-submit .submit:hover {
+  -webkit-box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.1);
+          box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.1);
+}
+
+#comments.wpnat-comments-area.modern .wpnat-comment-list {
+  margin-top: 40px;
+  padding-left: 0;
+  list-style: none;
+}
+
+#comments.wpnat-comments-area.modern .wpnat-comment-list .comment {
+  position: relative;
+  margin-left: 0;
+  padding-left: 65px;
+}
+
+#comments.wpnat-comments-area.modern .wpnat-comment-list .comment.hide .wpnat-comment-body {
+  padding-bottom: 0;
+}
+
+#comments.wpnat-comments-area.modern .wpnat-comment-list .comment.hide .wpnat-angle-arrow {
+  -webkit-transform: rotate(180deg);
+          transform: rotate(180deg);
+}
+
+#comments.wpnat-comments-area.modern .wpnat-comment-list .comment.hide::before {
+  display: none;
+}
+
+#comments.wpnat-comments-area.modern .wpnat-comment-list .comment.hide .children {
+  display: none;
+}
+
+#comments.wpnat-comments-area.modern .wpnat-comment-list .comment.parent.depth-1 {
+  margin-bottom: 40px;
+}
+
+#comments.wpnat-comments-area.modern .wpnat-comment-list .comment.parent.depth-1 ol.children {
+  padding-left: 0;
+  list-style: none;
+}
+
+#comments.wpnat-comments-area.modern .wpnat-comment-list .comment.parent.depth-1::before {
+  content: '';
+  position: absolute;
+  top: 70px;
+  left: 22.5px;
+  bottom: -14px;
+  border-left: 1px solid #e6ebf2;
+}
+
+#comments.wpnat-comments-area.modern .wpnat-comment-list .comment.parent.depth-1 .comment-respond {
+  padding-bottom: 30px;
+  margin-top: -20px;
+}
+
+#comments.wpnat-comments-area.modern .wpnat-comment-list .comment.parent.depth-1 .comment-respond small {
+  position: absolute;
+  right: 0;
+  width: auto;
+  top: -71px;
+  left: auto;
+}
+
+#comments.wpnat-comments-area.modern .wpnat-comment-list .comment.parent.depth-1 .comment-respond small a#cancel-comment-reply-link {
+  font-size: 14px;
+  font-weight: 500;
+  color: #7f8ea4;
+}
+
+#comments.wpnat-comments-area.modern .wpnat-comment-list .comment .wpnat-comment-body {
+  padding-bottom: 40px;
+}
+
+#comments.wpnat-comments-area.modern .wpnat-comment-list .comment .wpnat-comment-body .wpnat-comment-arrow-trigger {
+  cursor: pointer;
+}
+
+#comments.wpnat-comments-area.modern .wpnat-comment-list .comment .wpnat-comment-body .wpnat-comment-arrow-trigger .wpnat-comments-count {
+  position: absolute;
+  top: 40px;
+  left: 20px;
+  color: #bac7d6;
+}
+
+#comments.wpnat-comments-area.modern .wpnat-comment-list .comment .wpnat-comment-body .wpnat-comment-arrow-trigger .wpnat-angle-arrow {
+  position: absolute;
+  top: 55px;
+  left: 18px;
+}
+
+#comments.wpnat-comments-area.modern .wpnat-comment-list .comment .wpnat-comment-body .wpnat-comment-author {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+#comments.wpnat-comments-area.modern .wpnat-comment-list .comment .wpnat-comment-body .wpnat-comment-author .avatar {
+  position: absolute;
+  left: 0;
+  margin-top: -10px;
+  border-radius: 100%;
+}
+
+#comments.wpnat-comments-area.modern .wpnat-comment-list .comment .wpnat-comment-body .wpnat-comment-author .fn {
+  margin-top: -2px;
+  padding-left: 0;
+  line-height: normal;
+}
+
+#comments.wpnat-comments-area.modern .wpnat-comment-list .comment .wpnat-comment-body .wpnat-comment-author .fn a {
+  margin-right: 11px;
+  font-size: 1.5em;
+  font-weight: 500;
+  color: #3d4852;
+}
+
+#comments.wpnat-comments-area.modern .wpnat-comment-list .comment .wpnat-comment-body .wpnat-comment-author .wpnat-comment-metadata {
+  line-height: normal;
+}
+
+#comments.wpnat-comments-area.modern .wpnat-comment-list .comment .wpnat-comment-body .wpnat-comment-author .wpnat-comment-metadata a {
+  font-size: 1.2em;
+  color: #718096;
+}
+
+#comments.wpnat-comments-area.modern .wpnat-comment-list .comment .wpnat-comment-body .wpnat-comment-author .wpnat-comment-metadata .edit-link {
+  padding-left: 10px;
+}
+
+#comments.wpnat-comments-area.modern .wpnat-comment-list .comment .wpnat-comment-body .wpnat-comment-content p {
+  margin-top: 0;
+  font-size: 1.5em;
+  color: #495568;
+  line-height: 22px;
+}
+
+#comments.wpnat-comments-area.modern .wpnat-comment-list .comment .wpnat-comment-body .wpnat-comment-content p a {
+  color: #671fe8;
+}
+
+#comments.wpnat-comments-area.modern .wpnat-comment-list .comment .wpnat-comment-body .reply {
+  line-height: normal;
+  margin-top: -3px;
+}
+
+#comments.wpnat-comments-area.modern .wpnat-comment-list .comment .wpnat-comment-body .reply .comment-reply-link {
+  font-size: 1.4em;
+  font-weight: 500;
+  color: #7f8ea4;
+  background-color: transparent;
+}
+/*# sourceMappingURL=public-style.css.map */
