@@ -45,7 +45,7 @@ class WpnatPublicFunctions
 
     public function wpnat_comment_template($comment_template)
     {
-        if (get_option('enable_comments') == 'false' || get_option('selected_theme') == 'regular') {
+        if (get_option('enable_comments') === 'false' || get_option('selected_theme') === 'regular') {
             return;
         }
 
