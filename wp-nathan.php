@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Plugin Name:  WP Nathan
  * Description:  Small description
@@ -14,10 +15,8 @@
 /**
 * Exit if file called directly
 */
-if (! defined('ABSPATH') ) {
-
+if (! defined('ABSPATH')) {
     exit;
-
 }
 
 define('WPNAT_PATH', trailingslashit(plugin_dir_path(__FILE__)));
@@ -29,14 +28,14 @@ define('WPNAT_PLUGIN_NAME', 'WP Nathan');
 * Public functions
 */
 
-if (! class_exists('Wpnat_Public_Functions') ) {
-    include_once WPNAT_PATH .'assets/classes/class-public-functions.php';
+if (! class_exists('WpnatPublicFunctions')) {
+    include_once WPNAT_PATH . 'assets/classes/class-public-functions.php';
 }
 
 /**
 * Admin functions
 */
 
-if (! class_exists('Wpnat_Admin_Functions') ) {
-    include_once WPNAT_PATH .'admin/classes/class-admin-functions.php';
+if (! class_exists('WpnatAdminFunctions')) {
+    include_once WPNAT_PATH . 'admin/classes/class-admin-functions.php';
 }

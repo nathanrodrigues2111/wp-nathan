@@ -1,5 +1,7 @@
 <?php
-class WPNAT_Walker_Comment extends Walker_Comment {
+
+class WpnatWalkerComment extends Walker_Comment
+{
     /**
      * Output a comment in the HTML5 format.
      *
@@ -13,8 +15,9 @@ class WPNAT_Walker_Comment extends Walker_Comment {
      * @param array  $args    An array of arguments.
      */
 
-    private function wpnat_time_elapsed_string($datetime, $full = false) {
-        $now = new DateTime;
+    private function wpnat_time_elapsed_string($datetime, $full = false)
+    {
+        $now = new DateTime();
         $ago = new DateTime($datetime);
         $diff = $now->diff($ago);
     
@@ -38,11 +41,14 @@ class WPNAT_Walker_Comment extends Walker_Comment {
             }
         }
     
-        if (!$full) $string = array_slice($string, 0, 1);
+        if (!$full) {
+            $string = array_slice($string, 0, 1);
+        }
         return $string ? implode(', ', $string) . ' ago' : 'just now';
     }
 
-    protected function html5_comment( $comment, $depth, $args ) {
+    protected function html5_comment($comment, $depth, $args)
+    {
         $count = 0;
         $childcomments = get_comments(array(
             'post_id'   => get_the_ID(),
@@ -56,7 +62,7 @@ class WPNAT_Walker_Comment extends Walker_Comment {
         $commenter          = wp_get_current_commenter();
         $show_pending_links = ! empty($commenter['comment_author']);
 
-        if ($commenter['comment_author_email'] ) {
+        if ($commenter['comment_author_email']) {
              $moderation_note = __('Your comment is awaiting moderation.');
         } else {
             $moderation_note = __('Your comment is awaiting moderation. This is a preview; your comment will be visible after it has been approved.');
@@ -64,7 +70,7 @@ class WPNAT_Walker_Comment extends Walker_Comment {
         ?>
         <<?php echo $tag; ?> id="comment-<?php comment_ID(); ?>" <?php comment_class($this->has_children ? 'parent' : 'last', $comment); ?>>
             <article id="div-comment-<?php comment_ID(); ?>" class="wpnat-comment-body">
-                <?php if( $this->has_children && $depth === 1 ) { ?>
+                <?php if ($this->has_children && $depth === 1) { ?>
                     <div class="wpnat-comment-arrow-trigger">
                         <div class="wpnat-comments-count">0</div>
                         <svg class="wpnat-angle-arrow" xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 10 10" class="">
@@ -76,14 +82,14 @@ class WPNAT_Walker_Comment extends Walker_Comment {
                 <footer class="wpnat-comment-meta">
                     <div class="wpnat-comment-author vcard">
         <?php
-        if (0 != $args['avatar_size'] ) {
+        if (0 != $args['avatar_size']) {
             echo get_avatar($comment, $args['avatar_size']);
         }
         ?>
         <?php
         $comment_author = get_comment_author_link($comment);
 
-        if ('0' == $comment->comment_approved && ! $show_pending_links ) {
+        if ('0' == $comment->comment_approved && ! $show_pending_links) {
             $comment_author = get_comment_author($comment);
         }
 
@@ -102,8 +108,7 @@ class WPNAT_Walker_Comment extends Walker_Comment {
                 get_comment_time('c'),
                 sprintf(
                     /* translators: 1: Comment date, 2: Comment time. */
-                    $this->wpnat_time_elapsed_string( get_comment_date('', $comment) . ' '. get_comment_time())
-                
+                    $this->wpnat_time_elapsed_string(get_comment_date('', $comment) . ' ' . get_comment_time())
                 )
             );
 
@@ -113,7 +118,7 @@ class WPNAT_Walker_Comment extends Walker_Comment {
                     </div><!-- .comment-author -->
 
 
-        <?php if ('0' == $comment->comment_approved ) : ?>
+        <?php if ('0' == $comment->comment_approved) : ?>
                     <em class="wpnat-comment-awaiting-moderation"><?php echo $moderation_note; ?></em>
         <?php endif; ?>
                 </footer><!-- .comment-meta -->
@@ -123,7 +128,7 @@ class WPNAT_Walker_Comment extends Walker_Comment {
                 </div><!-- .comment-content -->
 
         <?php
-        if ('1' == $comment->comment_approved || $show_pending_links ) {
+        if ('1' == $comment->comment_approved || $show_pending_links) {
             comment_reply_link(
                 array_merge(
                     $args,

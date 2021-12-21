@@ -1,17 +1,20 @@
 <?php
 
-class Wpnat_Admin_Functions {
+class WpnatAdminFunctions
+{
     public static $instance = null;
 
-    public static function get_instance() {
-        if(self::$instance !== null ) {
+    public static function get_instance()
+    {
+        if (self::$instance !== null) {
             return self::$instance;
         }
         self::$instance = new self();
         return self::$instance;
     }
 
-    public function __construct() {
+    public function __construct()
+    {
         add_action('admin_menu', [ $this, 'wpnat_add_toplevel_menu' ]);
         add_action('admin_enqueue_scripts', [ $this, 'wpnat_ajax_admin_enqueue_scripts' ]);
         add_action('wp_ajax_admin_hook', [ $this, 'wpnat_ajax_admin_handler' ]);
@@ -21,11 +24,14 @@ class Wpnat_Admin_Functions {
     * Enqueue admin styles and scripts
     */
 
-    function wpnat_ajax_admin_enqueue_scripts( $hook ) {
+    public function wpnat_ajax_admin_enqueue_scripts($hook)
+    {
         /**
          * Check our page
          */
-        if ('toplevel_page_wpnat-settings' !== $hook ) { return; }
+        if ('toplevel_page_wpnat-settings' !== $hook) {
+            return;
+        }
 
 
         wp_enqueue_style('ajax-admin-styles', WPNAT_URL . 'admin/css/admin.css');
@@ -45,21 +51,22 @@ class Wpnat_Admin_Functions {
         * Localize script
         */
         wp_localize_script('ajax-admin', 'ajax_admin', $script);
-
     }
 
     /**
     * Handles ajax request
     */
-    public function wpnat_ajax_admin_handler() {
+    public function wpnat_ajax_admin_handler()
+    {
 
         // check nonce
         //check_ajax_referer( 'ajax_admin', 'nonce' );
 
         /**
-        * Checks if current user has required permissions 
+        * Checks if current user has required permissions
         */
-        if (! current_user_can('manage_options') ) { return;
+        if (! current_user_can('manage_options')) {
+            return;
         }
 
         $selected_theme = isset($_POST['selected_theme']) ? sanitize_text_field($_POST['selected_theme']) : false;
@@ -71,13 +78,13 @@ class Wpnat_Admin_Functions {
         return true;
 
         wp_die();
-
     }
 
     /**
     * Adding top level menu
     */
-    public function wpnat_add_toplevel_menu() {
+    public function wpnat_add_toplevel_menu()
+    {
 
         $capability = 'manage_options';
         $slug = 'wpnat-settings';
@@ -90,13 +97,13 @@ class Wpnat_Admin_Functions {
             [ $this, 'wpnat_display_settings_page' ],
             "",
         );
-
     }
 
     /**
     * Displays settings page in admin
     */
-    public function wpnat_display_settings_page() {
+    public function wpnat_display_settings_page()
+    {
         ob_start();
         ?>
         <div class="wrap">
@@ -108,11 +115,11 @@ class Wpnat_Admin_Functions {
                     $selected_theme = get_option('selected_theme');
                     $enable_comments = get_option('enable_comments');
                     $isChecked = false;
-                    if ($enable_comments === 'true') {
-                        $isChecked = true;
-                    } else {
-                        $isChecked = false;
-                    }
+                if ($enable_comments === 'true') {
+                    $isChecked = true;
+                } else {
+                    $isChecked = false;
+                }
                 ?>
                     <tbody>
                         <tr>
@@ -152,7 +159,6 @@ class Wpnat_Admin_Functions {
         <?php
         ob_get_contents();
     }
-
 }
 
-Wpnat_Admin_Functions::get_instance();
+WpnatAdminFunctions::get_instance();
