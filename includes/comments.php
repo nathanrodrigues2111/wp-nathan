@@ -24,18 +24,12 @@ $comment_body = __('Add a comment');
 $comment_author = __('Add your name');
 $comment_email = __('Add your email');
 $comment_url = __('Add your website url');
-
 ?>
 
-<div id="comments" class="wpnat-comments-area comments-area <?php if(get_option('selected_theme') ) { echo get_option('selected_theme'); 
-                                                       } ?> default-max-width <?php echo get_option('show_avatars') ? 'show-avatars' : ''; ?>">
+<div id="comments" class="wpnat-comments-area comments-area <?php if(get_option('selected_theme') ) { echo get_option('selected_theme'); } ?> default-max-width <?php echo get_option('show_avatars') ? 'show-avatars' : ''; ?>">
 
     <?php
     if (have_comments() ) :
-        ?>
-
-        <?php
-
         comment_form(
             array(
             'logged_in_as'       => null,
@@ -58,16 +52,19 @@ $comment_url = __('Add your website url');
 
         <ol class="wpnat-comment-list">
         <?php
-        include_once WPNAT_PATH .'includes/comments-walker.php';
-        wp_list_comments(
-            array(
-            'style'         => 'ol',
-            'max_depth'     => 4,
-            'short_ping'    => true,
-            'avatar_size'   => '46',
-            'walker'        => new WPNAT_Walker_Comment(),
-            )
-        );
+            if ( ! class_exists( 'WPNAT_Walker_Comment' ) ) {
+                include_once WPNAT_PATH .'includes/class-comments-walker.php';
+            }
+
+            wp_list_comments(
+                array(
+                'style'         => 'ol',
+                'max_depth'     => '',
+                'short_ping'    => true,
+                'avatar_size'   => '46',
+                'walker'        => new WPNAT_Walker_Comment(),
+                )
+            );
         ?>
         </ol><!-- .comment-list -->
 

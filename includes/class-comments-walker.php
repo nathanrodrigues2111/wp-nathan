@@ -88,7 +88,7 @@ class WPNAT_Walker_Comment extends Walker_Comment {
         }
 
         printf(
-                            /* translators: %s: Comment author link. */
+            /* translators: %s: Comment author link. */
             __('%s'),
             sprintf('<b class="fn">%s</b>', $comment_author)
         );
@@ -101,7 +101,7 @@ class WPNAT_Walker_Comment extends Walker_Comment {
                 esc_url(get_comment_link($comment, $args)),
                 get_comment_time('c'),
                 sprintf(
-                                    /* translators: 1: Comment date, 2: Comment time. */
+                    /* translators: 1: Comment date, 2: Comment time. */
                     $this->wpnat_time_elapsed_string( get_comment_date('', $comment) . ' '. get_comment_time())
                 
                 )
