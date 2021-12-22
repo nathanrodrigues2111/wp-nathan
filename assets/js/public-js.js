@@ -12,6 +12,7 @@ document.addEventListener(
     "DOMContentLoaded",
     function () {
         const hideChildrenComments = document.querySelectorAll('.wpnat-comment-body > .wpnat-comment-arrow-trigger');
+        const checkParentCount = document.querySelectorAll('.wpnat-comments-count');
 
         if (hideChildrenComments.length) {
             hideChildrenComments.forEach(element => {
@@ -21,6 +22,8 @@ document.addEventListener(
             });
         }
 
-        getParentCommentCount();
+        if(checkParentCount.length) {
+            getParentCommentCount();
+        }
     }
 );

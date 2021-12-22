@@ -5,7 +5,7 @@ const commenAdminForm = (commentform) => {
         const selectElement = document.querySelector('#default_comments_theme');
         const currentSelectedValue = selectElement.options[selectElement.selectedIndex].value;
         const enableComments = ajax_admin.enableComments;
-            if (currentSelectedValue === 'regular' || currentSelectedValue === 'modern') {
+            if (currentSelectedValue === 'regular' || currentSelectedValue === 'modern' || currentSelectedValue === 'twitter' || currentSelectedValue === 'discord') {
                 commentformSubmitButton = document.querySelector('#submit');
                 commentformSubmitButton.setAttribute('value', 'Saving...');
 

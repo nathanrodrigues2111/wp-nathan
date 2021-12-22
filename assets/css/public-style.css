@@ -1,4 +1,6 @@
 /* Colors */
+/* Twitter theme colors */
+/* Discord theme colors */
 /* Fonts */
 #comments.wpnat-comments-area {
   font-size: 10px;
@@ -16,17 +18,20 @@
   text-decoration: none;
 }
 
-#comments.wpnat-comments-area.modern .comment-respond {
+#comments.wpnat-comments-area.modern .comment-respond, #comments.wpnat-comments-area.twitter .comment-respond, #comments.wpnat-comments-area.discord .comment-respond {
   margin-top: 0;
   margin-bottom: 0;
 }
 
-#comments.wpnat-comments-area.modern .comment-respond form .comment-notes {
-  margin-bottom: 10px;
-  font-size: 1.5em;
+#comments.wpnat-comments-area.modern .comment-respond form, #comments.wpnat-comments-area.twitter .comment-respond form, #comments.wpnat-comments-area.discord .comment-respond form {
+  padding-left: 65px;
 }
 
-#comments.wpnat-comments-area.modern .comment-respond form .wpnat-row {
+#comments.wpnat-comments-area.modern .comment-respond form .comment-notes, #comments.wpnat-comments-area.twitter .comment-respond form .comment-notes, #comments.wpnat-comments-area.discord .comment-respond form .comment-notes {
+  display: none;
+}
+
+#comments.wpnat-comments-area.modern .comment-respond form .wpnat-row, #comments.wpnat-comments-area.twitter .comment-respond form .wpnat-row, #comments.wpnat-comments-area.discord .comment-respond form .wpnat-row {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -34,18 +39,96 @@
       flex-wrap: wrap;
 }
 
-#comments.wpnat-comments-area.modern .comment-respond form .wpnat-row .wpnat-common-input {
+#comments.wpnat-comments-area.modern .comment-respond form .wpnat-row .wpnat-common-input, #comments.wpnat-comments-area.twitter .comment-respond form .wpnat-row .wpnat-common-input, #comments.wpnat-comments-area.discord .comment-respond form .wpnat-row .wpnat-common-input {
   float: none;
 }
 
 @media (max-width: 767px) {
-  #comments.wpnat-comments-area.modern .comment-respond form .wpnat-row .wpnat-common-input {
+  #comments.wpnat-comments-area.modern .comment-respond form .wpnat-row .wpnat-common-input, #comments.wpnat-comments-area.twitter .comment-respond form .wpnat-row .wpnat-common-input, #comments.wpnat-comments-area.discord .comment-respond form .wpnat-row .wpnat-common-input {
     width: 100%;
   }
 }
 
-#comments.wpnat-comments-area.modern .comment-respond form .wpnat-common-input {
+#comments.wpnat-comments-area.modern .comment-respond form .wpnat-common-input, #comments.wpnat-comments-area.twitter .comment-respond form .wpnat-common-input, #comments.wpnat-comments-area.discord .comment-respond form .wpnat-common-input {
   margin-bottom: 0;
+}
+
+#comments.wpnat-comments-area.modern .comment-respond form .wpnat-common-input.wpnat-comment-form-comment, #comments.wpnat-comments-area.twitter .comment-respond form .wpnat-common-input.wpnat-comment-form-comment, #comments.wpnat-comments-area.discord .comment-respond form .wpnat-common-input.wpnat-comment-form-comment {
+  margin-top: 0;
+}
+
+#comments.wpnat-comments-area.modern .comment-respond form .wpnat-common-input.wpnat-comment-form-comment img, #comments.wpnat-comments-area.twitter .comment-respond form .wpnat-common-input.wpnat-comment-form-comment img, #comments.wpnat-comments-area.discord .comment-respond form .wpnat-common-input.wpnat-comment-form-comment img {
+  position: absolute;
+  left: 0;
+}
+
+#comments.wpnat-comments-area.modern .comment-respond form .form-submit, #comments.wpnat-comments-area.twitter .comment-respond form .form-submit, #comments.wpnat-comments-area.discord .comment-respond form .form-submit {
+  margin-top: 10px;
+  margin-bottom: 0;
+}
+
+#comments.wpnat-comments-area.modern .wpnat-comment-list, #comments.wpnat-comments-area.twitter .wpnat-comment-list, #comments.wpnat-comments-area.discord .wpnat-comment-list {
+  margin-top: 40px;
+  padding-left: 0;
+  list-style: none;
+}
+
+#comments.wpnat-comments-area.modern .wpnat-comment-list .comment, #comments.wpnat-comments-area.twitter .wpnat-comment-list .comment, #comments.wpnat-comments-area.discord .wpnat-comment-list .comment {
+  position: relative;
+  margin-left: 0;
+}
+
+#comments.wpnat-comments-area.modern .wpnat-comment-list .comment .wpnat-comment-author, #comments.wpnat-comments-area.twitter .wpnat-comment-list .comment .wpnat-comment-author, #comments.wpnat-comments-area.discord .wpnat-comment-list .comment .wpnat-comment-author {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+#comments.wpnat-comments-area.modern .wpnat-comment-list .comment .wpnat-comment-author .avatar, #comments.wpnat-comments-area.twitter .wpnat-comment-list .comment .wpnat-comment-author .avatar, #comments.wpnat-comments-area.discord .wpnat-comment-list .comment .wpnat-comment-author .avatar {
+  position: absolute;
+  left: 0;
+  margin-top: -10px;
+  border-radius: 100%;
+}
+
+#comments.wpnat-comments-area.modern .wpnat-comment-list .comment .wpnat-comment-author .fn, #comments.wpnat-comments-area.twitter .wpnat-comment-list .comment .wpnat-comment-author .fn, #comments.wpnat-comments-area.discord .wpnat-comment-list .comment .wpnat-comment-author .fn {
+  margin-top: -2px;
+  padding-left: 0;
+  line-height: normal;
+}
+
+#comments.wpnat-comments-area.modern .wpnat-comment-list .comment .wpnat-comment-author .fn a, #comments.wpnat-comments-area.twitter .wpnat-comment-list .comment .wpnat-comment-author .fn a, #comments.wpnat-comments-area.discord .wpnat-comment-list .comment .wpnat-comment-author .fn a {
+  margin-right: 11px;
+  font-size: 1.5em;
+}
+
+#comments.wpnat-comments-area.modern .wpnat-comment-list .comment .wpnat-comment-author .wpnat-comment-metadata, #comments.wpnat-comments-area.twitter .wpnat-comment-list .comment .wpnat-comment-author .wpnat-comment-metadata, #comments.wpnat-comments-area.discord .wpnat-comment-list .comment .wpnat-comment-author .wpnat-comment-metadata {
+  line-height: normal;
+}
+
+#comments.wpnat-comments-area.modern .wpnat-comment-list .comment .wpnat-comment-author .wpnat-comment-metadata a, #comments.wpnat-comments-area.twitter .wpnat-comment-list .comment .wpnat-comment-author .wpnat-comment-metadata a, #comments.wpnat-comments-area.discord .wpnat-comment-list .comment .wpnat-comment-author .wpnat-comment-metadata a {
+  font-size: 1.2em;
+  color: #718096;
+}
+
+#comments.wpnat-comments-area.modern .wpnat-comment-list .comment .wpnat-comment-author .wpnat-comment-metadata .edit-link, #comments.wpnat-comments-area.twitter .wpnat-comment-list .comment .wpnat-comment-author .wpnat-comment-metadata .edit-link, #comments.wpnat-comments-area.discord .wpnat-comment-list .comment .wpnat-comment-author .wpnat-comment-metadata .edit-link {
+  padding-left: 10px;
+}
+
+#comments.wpnat-comments-area.modern .wpnat-comment-list .comment ol.children, #comments.wpnat-comments-area.twitter .wpnat-comment-list .comment ol.children, #comments.wpnat-comments-area.discord .wpnat-comment-list .comment ol.children {
+  padding-left: 0;
+  list-style: none;
+}
+
+#comments.wpnat-comments-area.modern .comment-respond {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+#comments.wpnat-comments-area.modern .comment-respond form {
+  padding-left: 65px;
 }
 
 #comments.wpnat-comments-area.modern .comment-respond form .wpnat-common-input input, #comments.wpnat-comments-area.modern .comment-respond form .wpnat-common-input textarea {
@@ -95,11 +178,6 @@
   font-size: 1.4em;
 }
 
-#comments.wpnat-comments-area.modern .comment-respond form .form-submit {
-  margin-top: 10px;
-  margin-bottom: 0;
-}
-
 #comments.wpnat-comments-area.modern .comment-respond form .form-submit .submit {
   padding: 6px 15px;
   border: 1px solid #d9e1eb;
@@ -119,20 +197,8 @@
           box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.1);
 }
 
-#comments.wpnat-comments-area.modern .wpnat-comment-list {
-  margin-top: 40px;
-  padding-left: 0;
-  list-style: none;
-}
-
 #comments.wpnat-comments-area.modern .wpnat-comment-list .comment {
-  position: relative;
-  margin-left: 0;
   padding-left: 65px;
-}
-
-#comments.wpnat-comments-area.modern .wpnat-comment-list .comment.hide .wpnat-comment-body {
-  padding-bottom: 0;
 }
 
 #comments.wpnat-comments-area.modern .wpnat-comment-list .comment.hide .wpnat-angle-arrow {
@@ -148,45 +214,45 @@
   display: none;
 }
 
-#comments.wpnat-comments-area.modern .wpnat-comment-list .comment.parent.depth-1 {
-  margin-bottom: 40px;
+#comments.wpnat-comments-area.modern .wpnat-comment-list .comment.depth-1 {
+  margin-bottom: 0;
 }
 
-#comments.wpnat-comments-area.modern .wpnat-comment-list .comment.parent.depth-1 ol.children {
-  padding-left: 0;
-  list-style: none;
-}
-
-#comments.wpnat-comments-area.modern .wpnat-comment-list .comment.parent.depth-1::before {
-  content: '';
-  position: absolute;
-  top: 70px;
-  left: 22.5px;
-  bottom: -14px;
-  border-left: 1px solid #e6ebf2;
-}
-
-#comments.wpnat-comments-area.modern .wpnat-comment-list .comment.parent.depth-1 .comment-respond {
+#comments.wpnat-comments-area.modern .wpnat-comment-list .comment.depth-1 .comment-respond {
   padding-bottom: 30px;
   margin-top: -20px;
 }
 
-#comments.wpnat-comments-area.modern .wpnat-comment-list .comment.parent.depth-1 .comment-respond small {
+#comments.wpnat-comments-area.modern .wpnat-comment-list .comment.depth-1 .comment-respond small {
   position: absolute;
   right: 0;
   width: auto;
-  top: -71px;
+  top: -40px;
   left: auto;
 }
 
-#comments.wpnat-comments-area.modern .wpnat-comment-list .comment.parent.depth-1 .comment-respond small a#cancel-comment-reply-link {
+#comments.wpnat-comments-area.modern .wpnat-comment-list .comment.depth-1 .comment-respond small a#cancel-comment-reply-link {
   font-size: 14px;
   font-weight: 500;
   color: #7f8ea4;
 }
 
+#comments.wpnat-comments-area.modern .wpnat-comment-list .comment.depth-1.parent::before {
+  content: '';
+  position: absolute;
+  top: 70px;
+  left: 22.5px;
+  bottom: 30px;
+  border-left: 1px solid #e6ebf2;
+}
+
+#comments.wpnat-comments-area.modern .wpnat-comment-list .comment .wpnat-comment-author .fn a {
+  font-weight: 500;
+  color: #3d4852;
+}
+
 #comments.wpnat-comments-area.modern .wpnat-comment-list .comment .wpnat-comment-body {
-  padding-bottom: 40px;
+  padding-bottom: 30px;
 }
 
 #comments.wpnat-comments-area.modern .wpnat-comment-list .comment .wpnat-comment-body .wpnat-comment-arrow-trigger {
@@ -204,47 +270,6 @@
   position: absolute;
   top: 55px;
   left: 18px;
-}
-
-#comments.wpnat-comments-area.modern .wpnat-comment-list .comment .wpnat-comment-body .wpnat-comment-author {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
-}
-
-#comments.wpnat-comments-area.modern .wpnat-comment-list .comment .wpnat-comment-body .wpnat-comment-author .avatar {
-  position: absolute;
-  left: 0;
-  margin-top: -10px;
-  border-radius: 100%;
-}
-
-#comments.wpnat-comments-area.modern .wpnat-comment-list .comment .wpnat-comment-body .wpnat-comment-author .fn {
-  margin-top: -2px;
-  padding-left: 0;
-  line-height: normal;
-}
-
-#comments.wpnat-comments-area.modern .wpnat-comment-list .comment .wpnat-comment-body .wpnat-comment-author .fn a {
-  margin-right: 11px;
-  font-size: 1.5em;
-  font-weight: 500;
-  color: #3d4852;
-}
-
-#comments.wpnat-comments-area.modern .wpnat-comment-list .comment .wpnat-comment-body .wpnat-comment-author .wpnat-comment-metadata {
-  line-height: normal;
-}
-
-#comments.wpnat-comments-area.modern .wpnat-comment-list .comment .wpnat-comment-body .wpnat-comment-author .wpnat-comment-metadata a {
-  font-size: 1.2em;
-  color: #718096;
-}
-
-#comments.wpnat-comments-area.modern .wpnat-comment-list .comment .wpnat-comment-body .wpnat-comment-author .wpnat-comment-metadata .edit-link {
-  padding-left: 10px;
 }
 
 #comments.wpnat-comments-area.modern .wpnat-comment-list .comment .wpnat-comment-body .wpnat-comment-content p {
@@ -268,5 +293,268 @@
   font-weight: 500;
   color: #7f8ea4;
   background-color: transparent;
+}
+
+#comments.wpnat-comments-area.twitter .twitter-btn, #comments.wpnat-comments-area.twitter .comment-respond .form-submit .submit, #comments.wpnat-comments-area.twitter .comment-respond small #cancel-comment-reply-link, #comments.wpnat-comments-area.twitter .wpnat-comment-list .comment .wpnat-comment-body .reply a {
+  padding: 15px 30px;
+  border-radius: 100px;
+  background-color: #1DA1F2;
+  font-size: 1.5em;
+  color: #fff;
+}
+
+@media (max-width: 991px) {
+  #comments.wpnat-comments-area.twitter .twitter-btn, #comments.wpnat-comments-area.twitter .comment-respond .form-submit .submit, #comments.wpnat-comments-area.twitter .comment-respond small #cancel-comment-reply-link, #comments.wpnat-comments-area.twitter .wpnat-comment-list .comment .wpnat-comment-body .reply a {
+    padding: 10px 25px;
+  }
+}
+
+#comments.wpnat-comments-area.twitter .comment-respond {
+  padding-bottom: 20px;
+}
+
+#comments.wpnat-comments-area.twitter .comment-respond .wpnat-common-input input, #comments.wpnat-comments-area.twitter .comment-respond .wpnat-common-input textarea {
+  padding: 10px 30px;
+  border: 0;
+  border-radius: 100px;
+  font-size: 1.5em;
+  font-weight: 400;
+  color: #828282;
+  background-color: #E7ECF0;
+  resize: none;
+}
+
+#comments.wpnat-comments-area.twitter .comment-respond .wpnat-common-input textarea {
+  border-radius: 20px;
+}
+
+#comments.wpnat-comments-area.twitter .comment-respond .comment-form-cookies-consent {
+  margin-top: 25px;
+  margin-bottom: 5px;
+}
+
+#comments.wpnat-comments-area.twitter .comment-respond .comment-form-cookies-consent label {
+  font-size: 1.5em;
+  color: #333333;
+}
+
+@media (min-width: 992px) {
+  #comments.wpnat-comments-area.twitter .comment-respond .comment-form-cookies-consent {
+    padding-right: 120px;
+  }
+}
+
+@media (min-width: 992px) {
+  #comments.wpnat-comments-area.twitter .comment-respond .form-submit {
+    text-align: right;
+    position: absolute;
+    bottom: 10px;
+    right: 0;
+  }
+}
+
+#comments.wpnat-comments-area.twitter .comment-respond small {
+  position: absolute;
+  right: 0;
+  left: auto;
+  top: -59px;
+  width: auto;
+}
+
+#comments.wpnat-comments-area.twitter .comment-respond small #cancel-comment-reply-link {
+  font-size: 15px;
+}
+
+@media (max-width: 991px) {
+  #comments.wpnat-comments-area.twitter .comment-respond small {
+    top: -55px;
+  }
+}
+
+#comments.wpnat-comments-area.twitter .wpnat-comment-list .comment {
+  padding-left: 0;
+  line-height: normal;
+}
+
+#comments.wpnat-comments-area.twitter .wpnat-comment-list .comment .wpnat-comment-body {
+  padding-left: 65px;
+}
+
+#comments.wpnat-comments-area.twitter .wpnat-comment-list .comment .wpnat-comment-body .wpnat-comment-meta .wpnat-comment-author .fn a {
+  color: #000;
+}
+
+#comments.wpnat-comments-area.twitter .wpnat-comment-list .comment .wpnat-comment-body .wpnat-comment-content p {
+  margin-top: 5px;
+  font-size: 1.5em;
+  line-height: 1.4em;
+  color: #333333;
+}
+
+#comments.wpnat-comments-area.twitter .wpnat-comment-list .comment .wpnat-comment-body .wpnat-comment-content p a {
+  color: #1DA1F2;
+}
+
+#comments.wpnat-comments-area.twitter .wpnat-comment-list .comment .wpnat-comment-body .reply {
+  margin-bottom: 20px;
+}
+
+#comments.wpnat-comments-area.twitter .wpnat-comment-list .comment .wpnat-comment-body .reply a {
+  display: inline-block;
+}
+
+#comments.wpnat-comments-area.twitter .wpnat-comment-list .comment.depth-1 {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+  margin-bottom: 30px;
+}
+
+#comments.wpnat-comments-area.twitter .wpnat-comment-list .comment.depth-1.parent::before {
+  content: '';
+  position: absolute;
+  top: 30px;
+  left: 23px;
+  bottom: 135px;
+  border-left: 2px solid rgba(0, 0, 0, 0.08);
+}
+
+#comments.wpnat-comments-area.discord {
+  padding: 20px;
+  border-radius: 20px;
+  background-color: #36393F;
+}
+
+#comments.wpnat-comments-area.discord .discord-btn, #comments.wpnat-comments-area.discord .comment-respond .comment-form .form-submit .submit, #comments.wpnat-comments-area.discord .wpnat-comment-list .comment .wpnat-comment-body .reply a {
+  padding: 10px 25px;
+  border-radius: 5px;
+  font-size: 1.5em;
+  color: #fff;
+  background-color: #5865F2;
+}
+
+#comments.wpnat-comments-area.discord .comment-respond .comment-form .wpnat-common-input input, #comments.wpnat-comments-area.discord .comment-respond .comment-form .wpnat-common-input textarea {
+  padding: 10px 15px;
+  border: 0;
+  border-radius: 10px;
+  background-color: #40444B;
+  font-size: 1.5em;
+  color: #fff;
+  resize: none;
+}
+
+#comments.wpnat-comments-area.discord .comment-respond .comment-form .wpnat-common-input input::-webkit-input-placeholder, #comments.wpnat-comments-area.discord .comment-respond .comment-form .wpnat-common-input textarea::-webkit-input-placeholder {
+  color: #727479;
+}
+
+#comments.wpnat-comments-area.discord .comment-respond .comment-form .wpnat-common-input input:-ms-input-placeholder, #comments.wpnat-comments-area.discord .comment-respond .comment-form .wpnat-common-input textarea:-ms-input-placeholder {
+  color: #727479;
+}
+
+#comments.wpnat-comments-area.discord .comment-respond .comment-form .wpnat-common-input input::-ms-input-placeholder, #comments.wpnat-comments-area.discord .comment-respond .comment-form .wpnat-common-input textarea::-ms-input-placeholder {
+  color: #727479;
+}
+
+#comments.wpnat-comments-area.discord .comment-respond .comment-form .wpnat-common-input input::placeholder, #comments.wpnat-comments-area.discord .comment-respond .comment-form .wpnat-common-input textarea::placeholder {
+  color: #727479;
+}
+
+#comments.wpnat-comments-area.discord .comment-respond .comment-form .comment-form-cookies-consent {
+  position: relative;
+}
+
+#comments.wpnat-comments-area.discord .comment-respond .comment-form .comment-form-cookies-consent input[type=checkbox] {
+  display: none;
+}
+
+#comments.wpnat-comments-area.discord .comment-respond .comment-form .comment-form-cookies-consent input[type=checkbox] + label::before {
+  content: "";
+  position: absolute;
+  top: 6px;
+  left: 4px;
+  width: 12px;
+  height: 12px;
+  background-size: contain;
+  z-index: 1;
+}
+
+#comments.wpnat-comments-area.discord .comment-respond .comment-form .comment-form-cookies-consent input[type=checkbox]:checked + label:before {
+  background-image: url("../images/checkmark.svg");
+}
+
+#comments.wpnat-comments-area.discord .comment-respond .comment-form .comment-form-cookies-consent label {
+  padding-left: 30px;
+  font-size: 1.5em;
+  cursor: pointer;
+}
+
+#comments.wpnat-comments-area.discord .comment-respond .comment-form .comment-form-cookies-consent label::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 2px;
+  width: 20px;
+  height: 20px;
+  border-radius: 5px;
+  background-color: #fff;
+}
+
+#comments.wpnat-comments-area.discord .wpnat-comment-list {
+  margin-bottom: 0;
+}
+
+#comments.wpnat-comments-area.discord .wpnat-comment-list .comment {
+  padding-left: 65px;
+}
+
+#comments.wpnat-comments-area.discord .wpnat-comment-list .comment.depth-1 .comment-respond small {
+  position: absolute;
+  right: 5px;
+  top: 5px;
+  left: auto;
+  width: auto;
+}
+
+#comments.wpnat-comments-area.discord .wpnat-comment-list .comment.depth-1 .comment-respond small a {
+  display: block;
+  width: 20px;
+  height: 20px;
+  background-image: url("../images/discord-close.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  font-size: 0;
+}
+
+#comments.wpnat-comments-area.discord .wpnat-comment-list .comment.depth-1 .comment-respond .comment-form {
+  padding-bottom: 20px;
+}
+
+#comments.wpnat-comments-area.discord .wpnat-comment-list .comment .wpnat-comment-body {
+  padding-bottom: 35px;
+}
+
+#comments.wpnat-comments-area.discord .wpnat-comment-list .comment .wpnat-comment-body .wpnat-comment-meta .fn a {
+  font-size: 1.5em;
+  color: #fff;
+}
+
+#comments.wpnat-comments-area.discord .wpnat-comment-list .comment .wpnat-comment-body .wpnat-comment-meta .wpnat-comment-metadata a, #comments.wpnat-comments-area.discord .wpnat-comment-list .comment .wpnat-comment-body .wpnat-comment-meta .wpnat-comment-metadata .edit-link .comment-edit-link {
+  font-size: 1.2em;
+  color: #727479;
+}
+
+#comments.wpnat-comments-area.discord .wpnat-comment-list .comment .wpnat-comment-body .wpnat-comment-content p {
+  margin-top: 5px;
+  font-size: 1.5em;
+  color: #fff;
+}
+
+#comments.wpnat-comments-area.discord .wpnat-comment-list .comment .wpnat-comment-body .wpnat-comment-content p a {
+  color: #768AD4;
+}
+
+@media (min-width: 992px) {
+  .logged-in #comments.wpnat-comments-area.twitter .comment-respond .form-submit {
+    position: unset;
+  }
 }
 /*# sourceMappingURL=public-style.css.map */

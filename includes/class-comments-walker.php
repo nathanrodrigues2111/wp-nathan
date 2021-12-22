@@ -70,7 +70,7 @@ class WpnatWalkerComment extends Walker_Comment
         ?>
         <<?php echo $tag; ?> id="comment-<?php comment_ID(); ?>" <?php comment_class($this->has_children ? 'parent' : 'last', $comment); ?>>
             <article id="div-comment-<?php comment_ID(); ?>" class="wpnat-comment-body">
-                <?php if ($this->has_children && $depth === 1) { ?>
+                <?php if ($this->has_children && $depth === 1 && get_option('selected_theme') == 'modern' ) { ?>
                     <div class="wpnat-comment-arrow-trigger">
                         <div class="wpnat-comments-count">0</div>
                         <svg class="wpnat-angle-arrow" xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 10 10" class="">

@@ -9,7 +9,23 @@ $placeholder-color: #cbd5e0;
 $border-color: #e6ebf2;
 $link-color: #671fe8;
 $white: #fff;
+$black: #000;
 $box-shadow: rgba(0, 0, 0, 0.1);
+
+/* Twitter theme colors */
+$twitter-text-color: #333333;
+$twitter-text-color-alt: #828282;
+$twitter-primary-color: #1DA1F2;
+$twitter-input-background: #E7ECF0;
+$twitter-border: rgba(0, 0, 0, 0.08);
+
+/* Discord theme colors */
+$discord-primary-color: #36393F;
+$disocrd-sec-color: #40444B;
+$discord-text-color: #727479; 
+$discord-button-color: #5865F2; 
+$discord-link-color: #768AD4;
+
 
 /* Fonts */
 $primary-font: 'Roboto', sans-serif;
@@ -29,17 +45,17 @@ $primary-font: 'Roboto', sans-serif;
 		}
 	}
 
-	&.modern {
+	&.modern, &.twitter,  &.discord { 
 
-		.comment-respond{ 
+		.comment-respond{  
 			margin-top: 0;
 			margin-bottom: 0;
 
-			form {
+			form {  
+				padding-left: 65px;
 
 				.comment-notes {
-					margin-bottom: 10px;
-					font-size: 1.5em; 
+					display: none;
 				}
 
 				.wpnat-row {
@@ -49,16 +65,95 @@ $primary-font: 'Roboto', sans-serif;
 					.wpnat-common-input {
 						float: none;
 						
-
 						@media ( max-width: 767px ){
 							width: 100%;
 						}
 					}
-
 				}
 
 				.wpnat-common-input {
 					margin-bottom: 0;
+
+					&.wpnat-comment-form-comment {
+						margin-top: 0;
+
+						img {
+							position: absolute;
+							left: 0;
+						}
+					}
+				}
+
+				.form-submit {
+					margin-top: 10px;
+					margin-bottom: 0;
+				}
+			}
+		}
+
+		.wpnat-comment-list {
+			margin-top: 40px; 
+			padding-left: 0;
+			list-style: none;
+
+			.comment {
+				position: relative;
+				margin-left: 0;
+
+				.wpnat-comment-author {
+					display: flex;
+					flex-wrap: wrap;
+
+					.avatar {
+						position: absolute;
+						left: 0; 
+						margin-top: -10px;
+						border-radius: 100%;
+					}
+
+					.fn { 
+						margin-top: -2px;
+						padding-left: 0;
+						line-height: normal;
+
+						a {
+							margin-right: 11px;
+							font-size: 1.5em;
+						}
+					}
+
+					.wpnat-comment-metadata {
+						line-height: normal;
+
+						a { 
+							font-size: 1.2em;
+							color: $text-color-alt;
+						}
+
+						.edit-link {
+							padding-left: 10px; 
+						}
+					}
+				}
+
+				ol.children { 
+					padding-left: 0;
+					list-style: none;
+				}
+			}
+		}
+	}
+
+	&.modern {
+
+		.comment-respond{ 
+			margin-top: 0;
+			margin-bottom: 0;
+
+			form {
+				padding-left: 65px;
+
+				.wpnat-common-input {
 
 					input, textarea {
 						display: block;
@@ -84,6 +179,7 @@ $primary-font: 'Roboto', sans-serif;
 						height: 50px;
 						min-height: 50px;
 					}
+
 				}
 
 				.comment-form-cookies-consent {
@@ -95,8 +191,6 @@ $primary-font: 'Roboto', sans-serif;
 				}
 	
 				.form-submit {
-					margin-top: 10px;
-					margin-bottom: 0;
 
 					.submit {
 						padding: 6px 15px;
@@ -121,20 +215,11 @@ $primary-font: 'Roboto', sans-serif;
 		}
 
 		.wpnat-comment-list {
-			margin-top: 40px; 
-			padding-left: 0;
-			list-style: none;
 
 			.comment {
-				position: relative;
-				margin-left: 0;
 				padding-left: 65px;
 
 				&.hide {
-
-					.wpnat-comment-body {
-						padding-bottom: 0;
-					}
 
 					.wpnat-angle-arrow {
 						transform: rotate(180deg);
@@ -149,22 +234,8 @@ $primary-font: 'Roboto', sans-serif;
 					}
 				}
 
-				&.parent.depth-1 { 
-					margin-bottom: 40px;
-
-					ol.children {
-						padding-left: 0;
-						list-style: none;
-					}
-
-					&::before{
-						content: '';
-						position: absolute;
-						top: 70px;
-						left: 22.5px;
-						bottom: -14px;
-						border-left: 1px solid $border-color;
-					}
+				&.depth-1 {
+					margin-bottom: 0;
 
 					.comment-respond {
 						padding-bottom: 30px;
@@ -174,7 +245,7 @@ $primary-font: 'Roboto', sans-serif;
 							position: absolute;
 							right: 0;
 							width: auto;
-							top: -71px;
+							top: -40px;
 							left: auto;
 
 							a#cancel-comment-reply-link {
@@ -184,11 +255,30 @@ $primary-font: 'Roboto', sans-serif;
 							}
 						}
 					}
-				
+
+					&.parent { 
+						&::before{
+							content: '';
+							position: absolute;
+							top: 70px;
+							left: 22.5px;
+							bottom: 30px;
+							border-left: 1px solid $border-color;
+						}				
+					}
+				}
+
+				.wpnat-comment-author {
+					.fn {
+						a {
+							font-weight: 500;
+							color: $text-color;
+						}
+					}
 				}
 				
 				.wpnat-comment-body {
-					padding-bottom: 40px;
+					padding-bottom: 30px;
 
 					.wpnat-comment-arrow-trigger {
 						cursor: pointer;
@@ -204,46 +294,6 @@ $primary-font: 'Roboto', sans-serif;
 							position: absolute;
 							top: 55px;
 							left: 18px; 
-						}
-					}
-
-				
-	
-					.wpnat-comment-author {
-						display: flex;
-						flex-wrap: wrap;
-
-						.avatar {
-							position: absolute;
-							left: 0; 
-							margin-top: -10px;
-							border-radius: 100%;
-						}
-
-						.fn {
-							margin-top: -2px;
-							padding-left: 0;
-							line-height: normal;
-
-							a {
-								margin-right: 11px;
-								font-size: 1.5em;
-								font-weight: 500;
-								color: $text-color;
-							}
-						}
-
-						.wpnat-comment-metadata {
-							line-height: normal;
-
-							a {
-								font-size: 1.2em;
-								color: $text-color-alt;
-							}
-
-							.edit-link {
-								padding-left: 10px; 
-							}
 						}
 					}
 
@@ -274,6 +324,321 @@ $primary-font: 'Roboto', sans-serif;
 					
 				}
 
+			}
+		}
+	}
+
+	&.twitter {
+
+		.twitter-btn {
+			padding: 15px 30px;
+			border-radius: 100px; 
+			background-color: $twitter-primary-color;
+			font-size: 1.5em;
+			color: $white; 
+
+			@media ( max-width: 991px ) { 
+				padding: 10px 25px;
+			}
+		}
+
+		.comment-respond { 
+			padding-bottom: 20px;
+
+			.wpnat-common-input { 
+
+				input, textarea {
+					padding: 10px 30px;
+					border: 0;
+					border-radius: 100px;
+					font-size: 1.5em;
+					font-weight: 400;
+					color: $twitter-text-color-alt;
+					background-color: $twitter-input-background;
+					resize: none;
+				}
+
+				textarea {
+					border-radius: 20px;
+				}
+			}
+
+			.comment-form-cookies-consent { 
+				margin-top: 25px;
+				margin-bottom: 5px;
+
+				label {
+					font-size: 1.5em;
+					color: $twitter-text-color;
+				}
+
+				@media ( min-width: 992px ) {
+					padding-right: 120px;
+				}
+			}
+
+			.form-submit { 
+
+				.submit {
+					@extend .twitter-btn;
+				}
+
+				@media ( min-width: 992px ) {
+					text-align: right;
+					position: absolute; 
+					bottom: 10px;
+					right: 0;
+				}
+			}
+
+			small {
+				position: absolute;
+				right: 0;
+				left: auto;
+				top: -59px; 
+				width: auto;
+
+				#cancel-comment-reply-link{
+					@extend .twitter-btn;
+					font-size: 15px;
+				}
+
+				@media ( max-width: 991px ) {
+					top: -55px; 
+				}
+			}
+		}
+
+		.wpnat-comment-list {
+			.comment {
+				padding-left: 0;
+				line-height: normal;
+
+				.wpnat-comment-body {
+					padding-left: 65px;
+
+					.wpnat-comment-meta{
+						.wpnat-comment-author {
+							.fn {
+								a {
+									color: $black;
+								}
+							}
+						}
+					}
+
+					.wpnat-comment-content { 
+						p {
+							margin-top: 5px;
+							font-size: 1.5em; 
+							line-height: 1.4em;
+							color: $twitter-text-color;
+
+							a {
+								color: $twitter-primary-color;
+							}
+						}
+					}
+
+					.reply {
+						margin-bottom: 20px;
+
+						a {
+							@extend .twitter-btn;
+							display: inline-block;
+						}
+					}
+				}
+
+				&.depth-1  { 
+					border-bottom: 1px solid $twitter-border;
+					margin-bottom: 30px;
+					&.parent{  
+						&::before{
+							content: '';
+							position: absolute;
+							top: 30px;
+							left: 23px;
+							bottom: 135px;
+							border-left: 2px solid $twitter-border;
+						}	
+					}
+				}
+			}
+		}
+	}
+
+	&.discord {
+		padding: 20px;
+		border-radius: 20px;
+		background-color: $discord-primary-color;
+
+		.discord-btn {
+			padding: 10px 25px;
+			border-radius: 5px;
+			font-size: 1.5em;
+			color: $white;
+			background-color: $discord-button-color;
+		}
+
+		.comment-respond {
+			.comment-form {
+				.wpnat-common-input{
+					input, textarea {
+						padding: 10px 15px;
+						border: 0;
+						border-radius: 10px;
+						background-color: $disocrd-sec-color;
+						font-size: 1.5em;
+						color: $white;
+						resize: none;
+
+						&::placeholder {
+							color: $discord-text-color;
+						}
+					}
+				}
+
+				.comment-form-cookies-consent {
+					position: relative;
+
+					input[type=checkbox] { 
+						display: none;
+
+						& + label::before {
+							content: "";
+							position: absolute;
+							top: 6px;
+							left: 4px;
+							width: 12px;
+							height: 12px; 
+							background-size: contain;
+							z-index: 1;
+						}
+
+						&:checked + label:before { 
+							
+							background-image: url('../images/checkmark.svg');
+					  	}
+
+					  }
+					
+ 
+					label {
+						padding-left: 30px;
+						font-size: 1.5em;
+						cursor: pointer; 
+
+						&::after {
+							content: '';
+							position: absolute;
+							left: 0;
+							top: 2px;
+							width: 20px;
+							height: 20px;
+							border-radius: 5px;
+							background-color: $white;
+						}
+					}
+				}			
+
+				.form-submit {
+					.submit {
+						@extend .discord-btn;
+					}
+				}
+			}
+		}
+
+		.wpnat-comment-list {
+			margin-bottom: 0;
+			.comment {
+				padding-left: 65px;
+
+				&.depth-1 {
+					.comment-respond {
+
+						small {
+							position: absolute;
+							right: 5px;
+							top: 5px;
+							left: auto;
+							width: auto;
+							
+							a {
+								display: block;
+								width: 20px;
+								height: 20px;
+								background-image: url('../images/discord-close.svg');
+								background-repeat: no-repeat;
+								background-position: center;
+								background-size: contain;
+								font-size: 0;
+							}
+						}
+
+						.comment-form {
+							padding-bottom: 20px;
+						}
+					}
+				}
+
+				.wpnat-comment-body {
+					padding-bottom: 35px;
+
+					.wpnat-comment-meta {
+						.fn {
+							a {
+								font-size: 1.5em;
+								color: $white;
+							}
+						}
+
+						.wpnat-comment-metadata {
+							a, .edit-link .comment-edit-link {
+								font-size: 1.2em;
+								color: $discord-text-color;
+							}
+						}
+					}
+
+					.wpnat-comment-content {
+						p {
+							margin-top: 5px;
+							font-size: 1.5em;
+							color: $white;
+
+							a {
+								color: $discord-link-color;
+							}
+						}
+					}
+
+					.reply {
+						a {
+							@extend .discord-btn;
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+.logged-in {
+
+	#comments.wpnat-comments-area {
+
+		&.twitter {
+
+			.comment-respond { 
+
+				.form-submit {
+					 
+					@media ( min-width: 992px ) {
+						position: unset; 
+					}
+				}
 			}
 		}
 	}

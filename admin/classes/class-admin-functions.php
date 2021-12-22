@@ -146,6 +146,8 @@ class WpnatAdminFunctions
                             <select name="default_comments_theme" id="default_comments_theme">
                                 <option value="regular" <?php selected($selected_theme, 'regular'); ?>><?php _e('Regular theme', WPNAT_TETXDOMAIN); ?></option>
                                 <option value="modern" <?php selected($selected_theme, 'modern'); ?>><?php _e('Modern theme', WPNAT_TETXDOMAIN); ?></option>
+                                <option value="twitter" <?php selected($selected_theme, 'twitter'); ?>><?php _e('Twitter theme', WPNAT_TETXDOMAIN); ?></option>
+                                <option value="discord" <?php selected($selected_theme, 'discord'); ?>><?php _e('Discord theme', WPNAT_TETXDOMAIN); ?></option>
                             </select>
                             </td>
                         </tr>
